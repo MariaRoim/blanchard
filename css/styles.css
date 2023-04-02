@@ -775,3 +775,13 @@
 .hero__swiper-link:active{
   background-color: #7943A4;
 }
+
+/*about-us*/
+.about-us {
+  padding-top: 80px;
+  padding-bottom: 70px;
+}
+
+.about-us__text {
+  width: 67%;
+}
