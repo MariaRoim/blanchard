@@ -61,3 +61,25 @@ const swiper = new Swiper ('.hero__swiper-container', {
   effect: "fade",
   allowTouchMove: false,
 });
+
+const selector = document.querySelector('.choices');
+const choices = new Choices(selector, {
+  searchEnabled: false,
+  placeholder: false,
+});
+
+const swiper2 = new Swiper ('.gallery__swiper-container', {
+  slidesPerView: 3,
+  loop: false,
+  spaceBetween: 46,
+ 
+  pagination: {
+    el: ".gallery__swiper-container, .gallery__swiper-pagination",
+    type: "fraction"
+  },
+
+  navigation: {
+    nextEl: '.gallery__swiper-btn-next',
+    prevEl: '.gallery__swiper-btn-prev',
+    },
+});
