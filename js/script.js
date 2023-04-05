@@ -124,3 +124,14 @@ function f_acc(){
           document.querySelector(`[data-target="${path}"]`).classList.add('catalog__artist-container__active');
     })
   });
+
+  const swiper3 = new Swiper ('.events__swiper-container', {
+    slidesPerView: 3,
+    loop: false,
+    spaceBetween: 50,
+  
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+      },
+  });
