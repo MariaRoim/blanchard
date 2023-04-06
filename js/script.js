@@ -135,3 +135,14 @@ function f_acc(){
       prevEl: '.swiper-button-prev',
       },
   });
+
+  const swiper4 = new Swiper ('.projects__swiper-container', {
+    slidesPerView: 3,
+    loop: false,
+    spaceBetween: 50,
+  
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+      },
+  });
