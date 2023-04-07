@@ -50,13 +50,13 @@ document.querySelectorAll(".header__dropdown-simplebar").forEach(dropdown => {
   });
 })
 
-const swiper = new Swiper ('.hero__swiper-container', {
+const swiper = new Swiper('.hero__swiper-container', {
   slidesPerView: 1,
   loop: true,
   spaceBetween: 10,
   speed: 2000,
   autoplay: {
-  delay: 2000
+    delay: 2000
   },
   effect: "fade",
   allowTouchMove: false,
@@ -68,11 +68,11 @@ const choices = new Choices(selector, {
   placeholder: false,
 });
 
-const swiper2 = new Swiper ('.gallery__swiper-container', {
+const swiper2 = new Swiper('.gallery__swiper-container', {
   slidesPerView: 3,
   loop: false,
   spaceBetween: 46,
- 
+
   pagination: {
     el: ".gallery__swiper-container, .gallery__swiper-pagination",
     type: "fraction"
@@ -81,127 +81,129 @@ const swiper2 = new Swiper ('.gallery__swiper-container', {
   navigation: {
     nextEl: '.gallery__swiper-btn-next',
     prevEl: '.gallery__swiper-btn-prev',
-    },
+  },
 });
 
-$(".accordion").accordion( {
+$(".accordion").accordion({
   heightStyle: "content",
   collapsible: true,
   active: false,
   icons: false,
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
   //прикрепляем клик по заголовкам acc-head
   $('#accordeon .ui-accordion-header').on('click', f_acc);
 });
 
-function f_acc(){
-//скрываем все кроме того, что должны открыть
+function f_acc() {
+  //скрываем все кроме того, что должны открыть
   $('#accordeon .ui-accordion-content').not($(this).next()).slideUp(5000);
-// открываем или скрываем блок под заголовком, по которому кликнули
-    $(this).next().slideToggle(5000);
+  // открываем или скрываем блок под заголовком, по которому кликнули
+  $(this).next().slideToggle(5000);
 }
 
-function f_acc(){
+function f_acc() {
   //скрываем все кроме того, что должны открыть
-    $('#accordeon .ui-accordion-content').not($(this).next()).slideDown(5000);
+  $('#accordeon .ui-accordion-content').not($(this).next()).slideDown(5000);
   // открываем или скрываем блок под заголовком, по которому кликнули
-      $(this).next().slideToggle(5000);
-  }
+  $(this).next().slideToggle(5000);
+}
 
-  document.querySelectorAll('.catalog__tab').forEach(function(tabsBtn) {
-    tabsBtn.addEventListener ('click', function(e) {
-      const path = e.currentTarget.dataset.path;
-  
-      document.querySelectorAll('.catalog__tab').forEach(function(btn) {
-        btn.classList.remove('.catalog__tab__active')});
-        e.currentTarget.classList.add('catalog__tab__active');
-  
-        document.querySelectorAll('.catalog__artist-container').forEach(function(tabsBtn) {
-          tabsBtn.classList.remove('catalog__artist-container__active')});
-  
-          document.querySelector(`[data-target="${path}"]`).classList.add('catalog__artist-container__active');
-    })
-  });
+document.querySelectorAll('.catalog__tab').forEach(function (tabsBtn) {
+  tabsBtn.addEventListener('click', function (e) {
+    const path = e.currentTarget.dataset.path;
 
-  const swiper3 = new Swiper ('.events__swiper-container', {
-    slidesPerView: 3,
-    loop: false,
-    spaceBetween: 50,
-  
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-      },
-  });
+    document.querySelectorAll('.catalog__tab').forEach(function (btn) {
+      btn.classList.remove('.catalog__tab__active')
+    });
+    e.currentTarget.classList.add('catalog__tab__active');
 
-  const swiper4 = new Swiper ('.projects__swiper-container', {
-    slidesPerView: 3,
-    loop: false,
-    spaceBetween: 50,
-  
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-      },
-  });
+    document.querySelectorAll('.catalog__artist-container').forEach(function (tabsBtn) {
+      tabsBtn.classList.remove('catalog__artist-container__active')
+    });
 
-  var element = document.querySelector("input[type='tel']")
-  var im = new Inputmask("+7 (999) 999-99-99");
-  im.mask(element);
+    document.querySelector(`[data-target="${path}"]`).classList.add('catalog__artist-container__active');
+  })
+});
 
-  new JustValidate('.contacts__form', {
-    rules: {
-      name: {
-        required: true,
-        minLength: 2,
-        maxLength: 20
-      },
-  
-      tel: {
-        required: true,
-        function: (name, value) => {
-          const phone = element.inputmask.unmaskedvalue()
-          return Number(phone) && phone.length === 10
-        }
-    }
+const swiper3 = new Swiper('.events__swiper-container', {
+  slidesPerView: 3,
+  loop: false,
+  spaceBetween: 50,
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+const swiper4 = new Swiper('.projects__swiper-container', {
+  slidesPerView: 3,
+  loop: false,
+  spaceBetween: 50,
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+var element = document.querySelector("input[type='tel']")
+var im = new Inputmask("+7 (999) 999-99-99");
+im.mask(element);
+
+new JustValidate('.contacts__form', {
+  rules: {
+    name: {
+      required: true,
+      minLength: 2,
+      maxLength: 20
     },
-  
+
+    tel: {
+      required: true,
+      function: (name, value) => {
+        const phone = element.inputmask.unmaskedvalue()
+        return Number(phone) && phone.length === 10
+      }
+    }
+  },
+
   messages: {
     name: {
       required: 'Недопустимый формат',
     },
-  
+
     tel: {
       required: 'Недопустимый формат'
     }
   }
-  });
-
-  // Функция ymaps.ready() будет вызвана, когда
-    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-    ymaps.ready(init);
-    function init(){
-        // Создание карты.
-        var myMap = new ymaps.Map("map", {
-            // Координаты центра карты.
-            // Порядок по умолчанию: «широта, долгота».
-            // Чтобы не определять координаты центра карты вручную,
-            // воспользуйтесь инструментом Определение координат.
-            center: [55.75846806898367,37.60108849999989],
-            // Уровень масштабирования. Допустимые значения:
-            // от 0 (весь мир) до 19.
-            zoom: 14
-        });
-        myMap.behaviors.disable('scrollZoom');
-
-var myPlacemark = new ymaps.Placemark([55.75846806898367,37.60108849999989], {}, {
-  iconLayout: 'default#image',
-  iconImageHref: 'img/place-mark.svg',
-  iconImageSize: [20, 20],
 });
 
-// Размещение геообъекта на карте.
-myMap.geoObjects.add(myPlacemark);
-    }
+// Функция ymaps.ready() будет вызвана, когда
+// загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+ymaps.ready(init);
+function init() {
+  // Создание карты.
+  var myMap = new ymaps.Map("map", {
+    // Координаты центра карты.
+    // Порядок по умолчанию: «широта, долгота».
+    // Чтобы не определять координаты центра карты вручную,
+    // воспользуйтесь инструментом Определение координат.
+    center: [55.75846806898367, 37.60108849999989],
+    // Уровень масштабирования. Допустимые значения:
+    // от 0 (весь мир) до 19.
+    zoom: 14
+  });
+  myMap.behaviors.disable('scrollZoom');
+
+  var myPlacemark = new ymaps.Placemark([55.75846806898367, 37.60108849999989], {}, {
+    iconLayout: 'default#image',
+    iconImageHref: 'img/place-mark.svg',
+    iconImageSize: [20, 20],
+  });
+
+  // Размещение геообъекта на карте.
+  myMap.geoObjects.add(myPlacemark);
+}
